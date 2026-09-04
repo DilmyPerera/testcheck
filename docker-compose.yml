@@ -1,0 +1,15 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: evotec
+      POSTGRES_PASSWORD: evotec
+      POSTGRES_DB: evotec
+    ports:
+      - "5432:5432"
+    volumes:
+      - evotec_postgres_data:/var/lib/postgresql/data
+
+volumes:
+  evotec_postgres_data:
